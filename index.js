@@ -7,13 +7,20 @@ const productRoutes = require("./routes/productRoutes");
 
 const app = express();
 
+// Connect DB
 connectDB();
 
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
+// Routes
 app.use("/api/products", productRoutes);
 
-app.listen(5000, () => {
- console.log("Server running");
+// Test Route (optional but useful)
+app.get("/", (req, res) => {
+  res.send("API is running 🚀");
 });
+
+
+module.exports = app;
