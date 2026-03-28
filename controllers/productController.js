@@ -1,7 +1,7 @@
-const Product = require("../models/Product");
-const cloudinary = require("../config/cloudinary");
+import Product from "../models/Product.js"
+import cloudinary from "../config/cloudinary.js";
 
-exports.addProduct = async (req, res) => {
+export const addProduct = async (req, res) => {
 
  try {
 
@@ -57,7 +57,7 @@ exports.addProduct = async (req, res) => {
 
 
 // GET PRODUCTS
-exports.getProducts = async (req, res) => {
+export const getProducts = async (req, res) => {
 
  try {
 

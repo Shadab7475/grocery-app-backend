@@ -1,9 +1,10 @@
-const express = require("express");
-const router = express.Router();
+import express from "express"
+const router = express.Router(); 
 
-const upload = require("../middleware/upload");
 
-const { addProduct, getProducts } = require("../controllers/productController");
+import upload from "../middleware/upload.js"; // ✅ sahi
+
+import { addProduct, getProducts } from "../controllers/productController.js"
 
 // ADD PRODUCT
 router.post("/add", upload.single("image"), addProduct);
@@ -11,4 +12,4 @@ router.post("/add", upload.single("image"), addProduct);
 // GET PRODUCTS
 router.get("/", getProducts);
 
-module.exports = router;
+export default router
