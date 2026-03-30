@@ -1,15 +1,42 @@
-import express from "express"
-const router = express.Router(); 
+// import express from "express"
+// const router = express.Router(); 
 
 
-import upload from "../middleware/upload.js"; // ✅ sahi
+// import upload from "../middleware/upload.js"; 
 
-import { addProduct, getProducts } from "../controllers/productController.js"
+// import { addProduct, getProducts } from "../controllers/productController.js"
 
-// ADD PRODUCT
+
+// router.post("/add", upload.single("image"), addProduct);
+
+
+// router.get("/", getProducts);
+
+// export default router
+
+
+
+import express from "express";
+const router = express.Router();
+
+import upload from "../middleware/upload.js";
+import { 
+  addProduct, 
+  getProducts, 
+  updateProduct, 
+  deleteProduct 
+} from "../controllers/productController.js";
+
+
 router.post("/add", upload.single("image"), addProduct);
 
-// GET PRODUCTS
+
 router.get("/", getProducts);
 
-export default router
+
+router.put("/:id", upload.single("image"), updateProduct);
+
+
+router.delete("/:id", deleteProduct);
+
+export default router;
