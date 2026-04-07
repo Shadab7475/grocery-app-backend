@@ -26,7 +26,7 @@ console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
 // test route
 app.get("/", (req, res) => {
-  res.send("Backend running 🚀");
+  res.send("Backend run 🚀");
 });
 
 // DB connect (SAFE)
