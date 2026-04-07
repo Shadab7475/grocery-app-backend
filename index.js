@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// routes
+
 app.use("/api/products", productRoutes);
 app.use("/api/admin", userRoutes);
 
@@ -24,18 +24,18 @@ app.listen(PORT, () => {
 
 console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
-// test route
+
 app.get("/", (req, res) => {
-  res.send("Backend run 🚀");
+  res.send("Backend run ");
 });
 
-// DB connect (SAFE)
+
 if (!process.env.MONGO_URI) {
-  console.log("❌ MONGO_URI missing");
+  console.log("MONGO_URI missing");
 }
 
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected ✅"))
+  .then(() => console.log("MongoDB Connected "))
   .catch((err) => console.log("DB Error:", err));
 
 export default app;
